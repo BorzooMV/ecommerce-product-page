@@ -1,12 +1,13 @@
-import { Fragment } from 'react'
+import theme from '../../utils/theme'
 import Header from './Header'
 import { LayoutProps } from './Layout.d'
+import { ThemeProvider } from '@mui/material'
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <Fragment>
+    <ThemeProvider theme={theme}>
       <Header />
       {children}
-    </Fragment>
+    </ThemeProvider>
   )
 }
