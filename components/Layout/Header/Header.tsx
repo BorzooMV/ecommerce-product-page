@@ -8,7 +8,7 @@ import style from './Header.module.css'
 
 export default function Header() {
   return (
-    <AppBar position="sticky">
+    <AppBar position="sticky" sx={{ background: 'white' }}>
       <Toolbar sx={{ width: '100%', justifyContent: 'space-between' }}>
         <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
           <IconButton>
