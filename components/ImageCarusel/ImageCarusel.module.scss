@@ -1,0 +1,17 @@
+.root {
+  position: relative;
+}
+
+.actionButtons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  padding: 0 1rem;
+
+  button {
+    background: white;
+    height: 35px;
+    width: 35px;
+  }
+}
