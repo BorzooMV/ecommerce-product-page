@@ -1,7 +1,4 @@
-interface Image {
-  path: string
-  order: number
-}
+import { IImage, IImageWithOrder } from '../../types/global'
 export interface ImageCaruselProps {
-  images?: Image[]
+  images?: IImageWithOrder[]
 }

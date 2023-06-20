@@ -40,7 +40,7 @@ export default function ImageCarusel({ images }: ImageCaruselProps) {
   return (
     <div className={style.root}>
       <Image
-        src={images[currentStep].path}
+        src={images[currentStep].original}
         alt={`product image ${currentStep + 1}`}
         width={500}
         height={500}

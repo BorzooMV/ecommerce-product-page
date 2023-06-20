@@ -1,0 +1,10 @@
+@import 'variables';
+
+.MuiChip-root.MuiChip-filled.MuiChip-colorPrimary.light-chip {
+  border-radius: 10px;
+  background: fade-out($primary, 0.8);
+  span.MuiChip-label {
+    padding: 0.5rem;
+    color: $primary;
+  }
+}
