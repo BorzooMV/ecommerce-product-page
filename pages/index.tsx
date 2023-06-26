@@ -1,6 +1,7 @@
+import useGetCaruselImages from '../hooks/useGetCaruselImages'
 import ImageCarusel from '../components/ImageCarusel'
 import ProductDescription from '../components/ProductDescription'
-import useGetCaruselImages from '../hooks/useGetCaruselImages'
+import CartButtonWithQuantity from '../components/CartButtonWithQuantity'
 
 import sampleProduct from '../data/sampleProduct.json'
 
@@ -14,6 +15,7 @@ export default function Home() {
         title={sampleProduct.title}
         product={sampleProduct}
       />
+      <CartButtonWithQuantity />
     </main>
   )
 }
