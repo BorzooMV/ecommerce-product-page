@@ -42,8 +42,7 @@ export default function ImageCarusel({ images }: ImageCaruselProps) {
       <Image
         src={images[currentStep].original}
         alt={`product image ${currentStep + 1}`}
-        width={500}
-        height={500}
+        fill
       />
       <Stack
         direction="row"

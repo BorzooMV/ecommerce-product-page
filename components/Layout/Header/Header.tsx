@@ -3,7 +3,6 @@ import { Menu, ShoppingCartOutlined } from '@mui/icons-material'
 import { AppBar, Avatar, IconButton, Stack, Toolbar } from '@mui/material'
 import Image from 'next/image'
 import logo from '../../../public/images/logo.svg'
-import avatarImg from '../../../public/images/image-avatar.png'
 import style from './Header.module.css'
 
 export default function Header() {
@@ -15,7 +14,7 @@ export default function Header() {
             <Menu />
           </IconButton>
           <div className={style.logo}>
-            <Image src={logo} alt="sneakers logo" width={300} />
+            <Image src={logo} alt="sneakers logo" />
           </div>
         </Stack>
         <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
