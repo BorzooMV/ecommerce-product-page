@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from 'react'
 
 import {
   ICartContext,
+  ICartItem,
   ICartItemsState,
   ShoppingCartProviderProps,
 } from './ShoppingCartProvider.d'
@@ -10,6 +11,7 @@ import { getFinalPrice } from '../../utils/utils'
 
 const CartContext = createContext<ICartContext>({
   cartItems: undefined,
+  totalItemCount: undefined,
   addNewItem: undefined,
   addToExistingItem: undefined,
   addToCart: undefined,
@@ -26,6 +28,13 @@ export default function ShoppingCartProvider({
     items: [],
     totalPrice: 0,
   })
+
+  const totalItemCount = cartItems.items.reduce(
+    (total: number, item: ICartItem) => {
+      return total + item.quantity
+    },
+    0
+  )
 
   function addNewItem(product: IProduct, q: number) {
     const finalPrice = getFinalPrice(product)
@@ -97,6 +106,7 @@ export default function ShoppingCartProvider({
 
   const context = {
     cartItems,
+    totalItemCount,
     addNewItem,
     addToExistingItem,
     addToCart,

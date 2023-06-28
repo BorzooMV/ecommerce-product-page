@@ -25,10 +25,10 @@ export default function CartButtonWithQuantity({
   function handleAddToCart() {
     if (!product.price) return alert('this product is unavailable!')
     if (!quantity) return alert('you must set the quantity!')
-    if(!addToCart) return alert('internal error!')
-    
+    if (!addToCart) return alert('internal error!')
+
     addToCart(product, quantity)
-    console.log(cartItems)
+    setQuantity(0)
   }
 
   return (
@@ -58,7 +58,6 @@ export default function CartButtonWithQuantity({
         startIcon={<ShoppingCartOutlined />}
         color="primary"
         size="large"
-        sx={{ color: 'white' }}
         onClick={handleAddToCart}
       >
         Add to cart
