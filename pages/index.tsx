@@ -15,7 +15,7 @@ export default function Home() {
         title={sampleProduct.title}
         product={sampleProduct}
       />
-      <CartButtonWithQuantity />
+      <CartButtonWithQuantity product={sampleProduct} />
     </main>
   )
 }

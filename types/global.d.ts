@@ -1,3 +1,5 @@
+export type Id = string
+
 export interface IImage {
   original: string
   thumbnail?: string
@@ -16,6 +18,7 @@ export interface IPrice {
 }
 
 export interface IProduct {
+  id: Id
   companyName: string
   title: string
   description: string
