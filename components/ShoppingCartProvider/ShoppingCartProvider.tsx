@@ -1,13 +1,14 @@
 import { createContext, useContext, useState } from 'react'
 
+import { getFinalPrice } from '../../utils/utils'
+
+import { IProduct, Id } from '../../types/global'
 import {
   ICartContext,
   ICartItem,
   ICartItemsState,
   ShoppingCartProviderProps,
 } from './ShoppingCartProvider.d'
-import { IProduct, Id } from '../../types/global'
-import { getFinalPrice } from '../../utils/utils'
 
 const CartContext = createContext<ICartContext>({
   cartItems: undefined,
@@ -43,6 +44,11 @@ export default function ShoppingCartProvider({
     const newCartItem = {
       id: product.id,
       name: product.title,
+      thumbnail: product.images
+        ? product.images[0].thumbnail
+          ? product.images[0].thumbnail
+          : product.images[0].original
+        : null,
       quantity: q,
       pricePerItem: finalPrice,
       priceTotal: finalPrice * q,

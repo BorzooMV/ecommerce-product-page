@@ -12,6 +12,7 @@ export interface ShoppingCartProviderProps {
 export interface ICartItem {
   id: Id
   name: string
+  thumbnail: string | null
   quantity: number
   pricePerItem: number
   priceTotal: number

@@ -1,6 +1,6 @@
 import { IProduct } from '../types/global'
 
-export function getFinalPrice(product: IProduct) {
+export function getFinalPrice(product: IProduct): number | null {
   if (!product.price) return null
   const { price } = product
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 
 import { useCart } from '../../ShoppingCartProvider/ShoppingCartProvider'
@@ -15,9 +15,19 @@ import { Menu, ShoppingCartOutlined } from '@mui/icons-material'
 
 import logo from '../../../public/images/logo.svg'
 import style from './Header.module.css'
+import CartPreview from '../../CartPreview'
 
 export default function Header() {
+  const [isCartVisible, setCartVisiblity] = useState(false)
   const { totalItemCount } = useCart()
+
+  function hideCart() {
+    setCartVisiblity(false)
+  }
+
+  function toggleCart() {
+    setCartVisiblity((prevValue) => !prevValue)
+  }
 
   return (
     <AppBar position="sticky" sx={{ background: 'white' }}>
@@ -31,7 +41,7 @@ export default function Header() {
           </div>
         </Stack>
         <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
-          <IconButton>
+          <IconButton onClick={toggleCart}>
             <Badge badgeContent={totalItemCount} color="primary">
               <ShoppingCartOutlined />
             </Badge>
@@ -39,6 +49,7 @@ export default function Header() {
           <Avatar alt="user avatar" src="/images/image-avatar.png" />
         </Stack>
       </Toolbar>
+      <CartPreview open={isCartVisible} closeCart={hideCart} />
     </AppBar>
   )
 }
