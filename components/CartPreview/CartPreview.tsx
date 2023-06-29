@@ -45,7 +45,7 @@ export default function CartPreview({ closeCart, open }: CartPreviewProps) {
   }
 
   return (
-    <ClickAwayListener onClickAway={closeCart}>
+    <ClickAwayListener onClickAway={closeCart} touchEvent={false}>
       <Box className={style.root}>
         <Paper className={style.wrapper} component="div">
           <Box sx={{ p: 2 }}>
