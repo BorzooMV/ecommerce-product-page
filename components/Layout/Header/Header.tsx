@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 
 import { useCart } from '../../ShoppingCartProvider/ShoppingCartProvider'
+import { useSidebar } from '../SidebarProvider/SidebarProvider'
+import CartPreview from '../../CartPreview'
 
 import {
   AppBar,
@@ -15,11 +17,11 @@ import { Menu, ShoppingCartOutlined } from '@mui/icons-material'
 
 import logo from '../../../public/images/logo.svg'
 import style from './Header.module.css'
-import CartPreview from '../../CartPreview'
 
 export default function Header() {
   const [isCartVisible, setCartVisiblity] = useState(false)
   const { totalItemCount } = useCart()
+  const { openSidebar } = useSidebar()
 
   function hideCart() {
     setCartVisiblity(false)
@@ -33,7 +35,7 @@ export default function Header() {
     <AppBar position="sticky" sx={{ background: 'white' }}>
       <Toolbar sx={{ width: '100%', justifyContent: 'space-between' }}>
         <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
-          <IconButton>
+          <IconButton onClick={openSidebar}>
             <Menu />
           </IconButton>
           <div className={style.logo}>
