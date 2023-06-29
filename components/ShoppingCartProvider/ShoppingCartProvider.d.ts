@@ -4,6 +4,7 @@ import { IProduct, Id } from '../../types/global'
 export type AddNewItemType = (product: IProduct, q: number) => void
 export type AddToExistingItemType = (id: Id, q: number) => void
 export type AddToCartType = (product: IProduct, quantity: number) => void
+export type RemoveCartItemType = (id: Id) => void
 
 export interface ShoppingCartProviderProps {
   children?: ReactNode
@@ -29,4 +30,5 @@ export interface ICartContext {
   addNewItem: AddNewItemType | undefined
   addToExistingItem: AddToExistingItemType | undefined
   addToCart: AddToCartType | undefined
+  removeCartItem: RemoveCartItemType | undefined
 }

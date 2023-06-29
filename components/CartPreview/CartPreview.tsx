@@ -20,7 +20,7 @@ import { DeleteOutline } from '@mui/icons-material'
 import style from './CartPreview.module.scss'
 
 export default function CartPreview({ closeCart, open }: CartPreviewProps) {
-  const { totalItemCount, cartItems } = useCart()
+  const { totalItemCount, cartItems, removeCartItem } = useCart()
 
   const { formatValue } = useCurrencyFormatter()
 
@@ -68,7 +68,14 @@ export default function CartPreview({ closeCart, open }: CartPreviewProps) {
                       thumbnail={item.thumbnail}
                     />
                     <Description item={item} />
-                    <IconButton size="small">
+                    <IconButton
+                      size="small"
+                      onClick={
+                        removeCartItem
+                          ? () => removeCartItem(item.id)
+                          : () => alert('internal error')
+                      }
+                    >
                       <DeleteOutline />
                     </IconButton>
                   </Stack>
@@ -83,7 +90,7 @@ export default function CartPreview({ closeCart, open }: CartPreviewProps) {
                 <Typography color="gray">Your cart is empty</Typography>
               </Stack>
             )}
-            {totalItemCount && (
+            {Boolean(totalItemCount) && (
               <Button fullWidth color="primary" variant="contained">
                 Checkout
               </Button>

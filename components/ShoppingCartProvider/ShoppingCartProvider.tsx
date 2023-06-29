@@ -16,6 +16,7 @@ const CartContext = createContext<ICartContext>({
   addNewItem: undefined,
   addToExistingItem: undefined,
   addToCart: undefined,
+  removeCartItem: undefined,
 })
 
 export function useCart() {
@@ -96,19 +97,18 @@ export default function ShoppingCartProvider({
     }
   }
 
-  // TODO: add remove fucntion
-  // function removeFromExistingItem(id: Id) {
-  //   setCartItems((prevItems) => {
-  //     const item = prevItems.items.find((item) => item.id === id)
+  function removeCartItem(id: Id) {
+    setCartItems((prevItems) => {
+      const removedItem = prevItems.items.find((item) => item.id === id)
 
-  //     if (!item) return prevItems
+      if (!removedItem) return prevItems
 
-  //     const { quantity, pricePerItem, priceTotal } = item
-  //     const { totalPrice } = prevItems
-
-  //     return prevItems
-  //   })
-  // }
+      return {
+        totalPrice: prevItems.totalPrice - removedItem.priceTotal,
+        items: [...prevItems.items.filter((item) => item.id !== id)],
+      }
+    })
+  }
 
   const context = {
     cartItems,
@@ -116,6 +116,7 @@ export default function ShoppingCartProvider({
     addNewItem,
     addToExistingItem,
     addToCart,
+    removeCartItem,
   }
 
   return <CartContext.Provider value={context}>{children}</CartContext.Provider>
