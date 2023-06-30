@@ -3,14 +3,23 @@ import React, { useState } from 'react'
 import { useCart } from '../ShoppingCartProvider/ShoppingCartProvider'
 import { CartButtonWithQuantityProps } from './CartButtonWithQuantity.d'
 
-import { Box, Button, IconButton, Typography } from '@mui/material'
+import {
+  Box,
+  Button,
+  IconButton,
+  Stack,
+  Typography,
+  useMediaQuery,
+} from '@mui/material'
 import { Add, Remove, ShoppingCartOutlined } from '@mui/icons-material'
+import { grey } from '@mui/material/colors'
 
 export default function CartButtonWithQuantity({
   product,
 }: CartButtonWithQuantityProps) {
   const [quantity, setQuantity] = useState(0)
-  const { addToCart, cartItems } = useCart()
+  const { addToCart } = useCart()
+  const desktop = useMediaQuery((theme: any) => theme.breakpoints.up('md'))
 
   function incQuantity() {
     setQuantity((prevQuantity) => prevQuantity + 1)
@@ -32,7 +41,7 @@ export default function CartButtonWithQuantity({
   }
 
   return (
-    <Box sx={{ px: 2, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <Stack direction={desktop ? 'row' : 'column'} spacing={2}>
       <Box
         sx={{
           height: '42.25px',
@@ -41,7 +50,8 @@ export default function CartButtonWithQuantity({
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          background: '#f7f7f7',
+          background: grey[200],
+          width: desktop ? '10rem' : '100%',
         }}
       >
         <IconButton size="small" onClick={decQuantity}>
@@ -59,9 +69,10 @@ export default function CartButtonWithQuantity({
         color="primary"
         size="large"
         onClick={handleAddToCart}
+        sx={{ flex: '1 1 0px' }}
       >
         Add to cart
       </Button>
-    </Box>
+    </Stack>
   )
 }
