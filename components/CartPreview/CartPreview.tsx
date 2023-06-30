@@ -14,13 +14,16 @@ import {
   Paper,
   Stack,
   Typography,
+  useMediaQuery,
 } from '@mui/material'
 import { DeleteOutline } from '@mui/icons-material'
 
 import style from './CartPreview.module.scss'
+import classNames from 'classnames'
 
 export default function CartPreview({ closeCart, open }: CartPreviewProps) {
   const { totalItemCount, cartItems, removeCartItem } = useCart()
+  const desktop = useMediaQuery((theme: any) => theme.breakpoints.up('sm'))
 
   const { formatValue } = useCurrencyFormatter()
 
@@ -46,15 +49,29 @@ export default function CartPreview({ closeCart, open }: CartPreviewProps) {
 
   return (
     <ClickAwayListener onClickAway={closeCart} touchEvent={false}>
-      <Box className={style.root}>
-        <Paper className={style.wrapper} component="div">
+      <Box
+        className={classNames(style.root, {
+          [style.rootDesktop]: desktop,
+        })}
+      >
+        <Paper
+          className={classNames(style.wrapper, {
+            [style.wrapperDesktop]: desktop,
+          })}
+          component="div"
+          elevation={4}
+        >
           <Box sx={{ p: 2 }}>
             <Typography variant="h6" component="span">
               Cart
             </Typography>
           </Box>
           <Divider />
-          <Box className={style.itemsContainer}>
+          <Box
+            className={classNames(style.itemsContainer, {
+              [style.itemsContainerDesktop]: desktop,
+            })}
+          >
             {totalItemCount ? (
               cartItems?.items.map((item) => (
                 <div key={item.id}>

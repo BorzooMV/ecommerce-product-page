@@ -3,22 +3,40 @@
   top: 4rem;
   width: 100%;
   padding: 0 1rem;
+  z-index: 1;
+}
+
+.rootDesktop {
+  max-width: 380px;
+  top: 6rem;
+  right: 2rem;
 }
 
 .wrapper {
   height: 300px;
   border-radius: 20px;
+  overflow: hidden;
 }
 
-/* TODO: 80% height is a workaround for the
+.wrapperDesktop {
+  border-radius: 10px;
+  height: 200px;
+}
+
+/* TODO: 80% and 70% height is a workaround for the
 * container to fit properly in its wrapper.
 * Find a better solution to solve this issue
 * and see what is causing the problem
 */
 .itemsContainer {
+  overflow: auto;
   height: 80%;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+.itemsContainerDesktop {
+  height: 70%;
 }
