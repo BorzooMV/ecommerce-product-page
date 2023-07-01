@@ -9,6 +9,10 @@ export interface IImageWithOrder extends IImage {
   order: number
 }
 
+export interface IImageWithAlt extends IImage {
+  alt: string
+}
+
 export interface IPrice {
   initialPrice: number
   discount?: {

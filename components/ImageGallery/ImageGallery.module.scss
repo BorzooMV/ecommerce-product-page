@@ -1,0 +1,44 @@
+@import '../../utils/variables';
+
+.root {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 100%;
+}
+
+.bigImage {
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  position: relative;
+  max-height: 400px;
+}
+
+.smallImage {
+  border-radius: 5px;
+  overflow: hidden;
+  width: 80px;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+
+  &:hover {
+    filter: opacity(0.5);
+  }
+}
+
+.activeSmallImage {
+  border: 2px solid $primary;
+  filter: opacity(0.5);
+}
+
+.thumbnails {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
