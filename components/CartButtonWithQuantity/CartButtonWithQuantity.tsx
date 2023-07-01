@@ -69,7 +69,7 @@ export default function CartButtonWithQuantity({
         color="primary"
         size="large"
         onClick={handleAddToCart}
-        sx={{ flex: '1 1 0px' }}
+        sx={{ flex: '1 1 0px', minWidth: '170px' }}
       >
         Add to cart
       </Button>
