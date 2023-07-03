@@ -21,6 +21,7 @@ import { DeleteOutline } from '@mui/icons-material'
 import style from './CartPreview.module.scss'
 import classNames from 'classnames'
 
+// TODO: Consider better placement for tablet screen
 export default function CartPreview({ closeCart, open }: CartPreviewProps) {
   const { totalItemCount, cartItems, removeCartItem } = useCart()
   const desktop = useMediaQuery((theme: any) => theme.breakpoints.up('sm'))
