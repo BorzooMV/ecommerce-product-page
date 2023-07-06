@@ -24,7 +24,8 @@ import classNames from 'classnames'
 // TODO: Consider better placement for tablet screen
 export default function CartPreview({ closeCart, open }: CartPreviewProps) {
   const { totalItemCount, cartItems, removeCartItem } = useCart()
-  const desktop = useMediaQuery((theme: any) => theme.breakpoints.up('sm'))
+  const tablet = useMediaQuery((theme: any) => theme.breakpoints.up('sm'))
+  const desktop = useMediaQuery((theme: any) => theme.breakpoints.up('md'))
 
   const { formatValue } = useCurrencyFormatter()
 
@@ -52,12 +53,13 @@ export default function CartPreview({ closeCart, open }: CartPreviewProps) {
     <ClickAwayListener onClickAway={closeCart} touchEvent={false}>
       <Box
         className={classNames(style.root, {
+          [style.rootTablet]: tablet,
           [style.rootDesktop]: desktop,
         })}
       >
         <Paper
           className={classNames(style.wrapper, {
-            [style.wrapperDesktop]: desktop,
+            [style.wrapperDesktop]: tablet,
           })}
           component="div"
           elevation={4}
@@ -70,7 +72,7 @@ export default function CartPreview({ closeCart, open }: CartPreviewProps) {
           <Divider />
           <Box
             className={classNames(style.itemsContainer, {
-              [style.itemsContainerDesktop]: desktop,
+              [style.itemsContainerDesktop]: tablet,
             })}
           >
             {totalItemCount ? (
