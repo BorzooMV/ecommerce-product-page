@@ -1,34 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-commerce Product Page
 
-## Getting Started
+![desktop-design](https://github.com/BorzooMV/ecommerce-product-page/assets/69573788/0a6f163f-1137-4bb7-a3fe-fa465c43461d)
 
-First, run the development server:
+## Introduction
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+The E-commerce Product Page is a web application developed using TypeScript and React in the Next.js framework. It serves as a solution for the Frontend Mentor site challenge, providing a platform to display product information, including images, pricing, and discounts.
+
+## Technologies Used
+
+- TypeScript
+- React
+- Next.js
+- Material UI
+
+## Features
+
+1. Product Description: The application displays a detailed description of the product, providing users with essential information about its features and benefits.
+2. Pricing: The product's price is prominently displayed, allowing users to quickly identify the cost. If the product has any discounts or special offers, the final discounted price is also shown.
+3. Cart system: Users can add products to their cart and view or remove items from it. 
+4. Responsive Design: The application is designed to be responsive, ensuring optimal user experience across various screen sizes and devices. The images of the product adapt to different screen resolutions, providing a visually appealing layout.
+
+## Installation
+
+To run the application locally, follow these steps:
+
+1. Clone the respository:
+
+```
+git clone git@github.com:BorzooMV/ecommerce-product-page.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the project directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+cd ecommerce-product-page
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Install dependencies:
 
-## Learn More
+```
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Start the development server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+5. Open your preferred web browser and visit localhost:3000 to access the application.
 
-## Deploy on Vercel
+## Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Once the application is running, you can use the Product Page to:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- View detailed information about the product, including its description and features.
+- Check the price of the product and any available discounts.
+- Browse images of the product, which adapt to different screen sizes.
+- Add the product to the cart, then view or remove it from the cart preview component.
+
+## Conclusion
+
+The E-commerce product page is a responsive web application built using TypeScript, React, and Next.js. It provides users with an intuitive interface to explore product information, including pricing, descriptions, and images. The application's modern design, implemented with Material UI, ensures a visually pleasing and user-friendly experience.
+
+
+
