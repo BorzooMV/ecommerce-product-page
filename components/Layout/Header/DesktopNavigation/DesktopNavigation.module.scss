@@ -11,20 +11,24 @@
     li {
       position: relative;
       a {
-        color: black;
+        color: grey;
         text-decoration: none;
       }
-    }
-  }
-}
 
-.active {
-  &::after {
-    content: '';
-    position: absolute;
-    height: 3px;
-    top: 4.1rem;
-    background-color: $primary;
-    width: 100%;
+      &:hover {
+        a {
+          color: black;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          height: 3px;
+          top: 4.1rem;
+          background-color: $primary;
+          width: 100%;
+        }
+      }
+    }
   }
 }

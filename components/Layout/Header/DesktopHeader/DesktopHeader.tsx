@@ -7,13 +7,14 @@ import CartPreview from '../../../CartPreview'
 import DesktopNavigation from '../DesktopNavigation'
 
 import { ShoppingCartOutlined } from '@mui/icons-material'
-import { Avatar, Badge, Box, IconButton, Stack } from '@mui/material'
+import { Avatar, Badge, Box, IconButton, Stack, useTheme } from '@mui/material'
 
 import style from './DesktopHeader.module.scss'
 
 export default function DesktopHeader() {
   const [isCartVisible, setCartVisiblity] = useState(false)
   const { totalItemCount } = useCart()
+  const theme = useTheme()
 
   function hideCart() {
     setCartVisiblity(false)
@@ -34,7 +35,20 @@ export default function DesktopHeader() {
             <ShoppingCartOutlined />
           </Badge>
         </IconButton>
-        <Avatar alt="user avatar" src="/images/image-avatar.png" />
+        <Avatar
+          src="/images/image-avatar.png"
+          alt="user avatar"
+          sx={{
+            '&:hover': {
+              outline: '2px solid',
+              outlineColor: theme.palette.primary.main,
+              cursor: 'pointer',
+            },
+          }}
+          onClick={() => {
+            /*no-op*/
+          }}
+        />
       </Stack>
       <CartPreview open={isCartVisible} closeCart={hideCart} />
     </Box>

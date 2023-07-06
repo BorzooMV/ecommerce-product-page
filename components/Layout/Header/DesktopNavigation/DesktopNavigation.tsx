@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import Link from 'next/link'
-import classNames from 'classnames'
 
 import { LinkItemProps } from './DesktopNavigation.d'
 import { Typography } from '@mui/material'
@@ -27,22 +25,8 @@ const links = [
 
 export default function DesktopNavigation() {
   function LinkItem({ title, address = '#' }: LinkItemProps) {
-    const [isActive, setIsActive] = useState(false)
-
-    function activeLink() {
-      setIsActive(true)
-    }
-
-    function deactiveLink() {
-      setIsActive(false)
-    }
-
     return (
-      <li
-        onMouseEnter={activeLink}
-        onMouseLeave={deactiveLink}
-        className={classNames({ [style.active]: isActive })}
-      >
+      <li>
         <Link href={address}>
           <Typography>{title}</Typography>
         </Link>

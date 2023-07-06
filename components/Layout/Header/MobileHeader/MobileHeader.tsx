@@ -11,6 +11,7 @@ import {
   IconButton,
   Stack,
   Toolbar,
+  useTheme,
 } from '@mui/material'
 import { Menu, ShoppingCartOutlined } from '@mui/icons-material'
 
@@ -18,6 +19,7 @@ import HeaderLogo from '../HeaderLogo'
 
 export default function MobileHeader() {
   const [isCartVisible, setCartVisiblity] = useState(false)
+  const theme = useTheme()
   const { totalItemCount } = useCart()
   const { openSidebar } = useSidebar()
 
@@ -44,7 +46,20 @@ export default function MobileHeader() {
               <ShoppingCartOutlined />
             </Badge>
           </IconButton>
-          <Avatar alt="user avatar" src="/images/image-avatar.png" />
+          <Avatar
+            src="/images/image-avatar.png"
+            alt="user avatar"
+            sx={{
+              '&:hover': {
+                outline: '2px solid',
+                outlineColor: theme.palette.primary.main,
+                cursor: 'pointer',
+              },
+            }}
+            onClick={() => {
+              /*no-op*/
+            }}
+          />
         </Stack>
       </Toolbar>
       <CartPreview open={isCartVisible} closeCart={hideCart} />
