@@ -9,10 +9,11 @@ export function getFinalPrice(product: IProduct): number | null {
   return price.discount ? price.discount.finalPrice : price.initialPrice
 }
 
+// TODO: check if you can write it better, maybe use generics
 export function getImagesFor(
   product: IProduct,
   purpose: 'carusel' | 'gallery'
-): IImageWithAlt[] | IImageWithOrder[] {
+): any {
   if (!product.images) return []
 
   if (purpose === CARUSEL_TYPENAME) {

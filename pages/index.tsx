@@ -17,7 +17,6 @@ export default function Home() {
     GALLERY_TYPENAME
   )
 
-  // FIXME: consider rewrite getImagesFor utility function to solve issue below
   return (
     <main>
       {!desktop && <ImageCarusel images={productImagesForCarusel} />}
