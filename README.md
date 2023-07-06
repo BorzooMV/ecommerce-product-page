@@ -1,7 +1,5 @@
 # E-commerce Product Page
 
-![desktop-design](https://github.com/BorzooMV/ecommerce-product-page/assets/69573788/0a6f163f-1137-4bb7-a3fe-fa465c43461d)
-
 ## Introduction
 
 The E-commerce Product Page is a web application developed using TypeScript and React in the Next.js framework. It serves as a solution for the Frontend Mentor site challenge, providing a platform to display product information, including images, pricing, and discounts.
